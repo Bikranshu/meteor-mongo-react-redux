@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {browserHistory} from 'react-router';
 
 // Import custom components
 import Header from './common/header/header.component';
@@ -12,7 +11,6 @@ class App extends Component {
     constructor(props) {
         super(props);
     }
-
 
     componentWillMount() {
         if (!this.props.isAuthenticated) {
@@ -47,8 +45,9 @@ class App extends Component {
 }
 
 App.contextTypes = {
-    router: PropTypes.func.isRequired
+    router: PropTypes.object.isRequired
 };
+
 /**
  * Map the state to props.
  */

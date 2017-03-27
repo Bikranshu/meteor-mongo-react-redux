@@ -12,7 +12,6 @@ export function login({email, password}) {
                 });
                 dispatch(FlashMessage.addFlashMessage('error', 'Invalid username and password.'));
             } else {
-
                 dispatch({
                     type: ActionType.LOG_IN_SUCCESS
                 });
@@ -25,10 +24,20 @@ export function login({email, password}) {
 
 export function logout() {
     return function (dispatch) {
+        Meteor.logout((error) => {
+            if (error) {
+                dispatch({
+                    type: ActionType.LOG_OUT_FAILURE,
+                    error,
+                });
+                dispatch(FlashMessage.addFlashMessage('error', error.message));
+            } else {
+                dispatch({
+                    type: ActionType.LOG_OUT
+                });
+                window.location.href = AppConstant.ROOT_URL;
+            }
+        });
 
-        dispatch({type: ActionType.LOG_OUT});
-
-        window.location.href = AppConstant.BASE_URL;
-        return false;
     };
 }
