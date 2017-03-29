@@ -30,7 +30,7 @@ export function logout() {
                     type: ActionType.LOG_OUT_FAILURE,
                     error,
                 });
-                dispatch(FlashMessage.addFlashMessage('error', error.message));
+                dispatch(FlashMessage.addFlashMessage('error', error.reason));
             } else {
                 dispatch({
                     type: ActionType.LOG_OUT

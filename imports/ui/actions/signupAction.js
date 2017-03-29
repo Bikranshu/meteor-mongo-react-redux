@@ -9,19 +9,20 @@ export function storeItem(data) {
                     type: ActionType.FAILURE,
                     error,
                 });
+                dispatch(FlashMessage.addFlashMessage('error', error.reason));
+            } else {
+                dispatch({
+                    type: ActionType.ADD
+                });
+                dispatch(FlashMessage.addFlashMessage('success', 'User added successfully.'));
             }
-            dispatch({
-                type: ActionType.ADD
-            });
-            dispatch(FlashMessage.addFlashMessage('success', 'User added successfully.'));
-
         });
     };
 }
 
 export function submitForm(entity, data) {
     return function (dispatch) {
-            dispatch(storeItem(entity, data));
+        dispatch(storeItem(entity, data));
 
     }
 }
