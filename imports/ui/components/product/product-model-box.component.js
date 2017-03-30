@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 import Common from '../../constants/common';
 import Message from '../../constants/message';
-import * as crudAction from '../../actions/crudAction';
+import * as productAction from '../../actions/productAction';
 
 class ProductModelBox extends Component {
 
@@ -60,7 +60,7 @@ class ProductModelBox extends Component {
  */
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(_.assign({}, crudAction), dispatch)
+        actions: bindActionCreators(_.assign({}, productAction), dispatch)
     }
 }
 

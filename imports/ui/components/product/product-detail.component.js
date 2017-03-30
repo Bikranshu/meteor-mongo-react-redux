@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import _ from 'lodash';
 
 import Common from '../../constants/common';
-import * as crudAction from '../../actions/crudAction';
+import * as productAction from '../../actions/productAction';
 
 class ProductDetail extends Component {
 
@@ -83,7 +83,7 @@ function mapStateToProps(state) {
  */
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(_.assign({}, crudAction), dispatch)
+        actions: bindActionCreators(_.assign({}, productAction), dispatch)
     }
 }
 

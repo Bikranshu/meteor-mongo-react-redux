@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 
 import Common from '../../constants/common';
-import * as crudAction from '../../actions/crudAction';
+import * as productAction from '../../actions/productAction';
 import * as flashMessage  from '../../actions/flashMessage';
 
 import renderText from '../common/form/renderText';
@@ -144,7 +144,7 @@ function mapStateToProps(state) {
  */
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(_.assign({}, crudAction, flashMessage), dispatch)
+        actions: bindActionCreators(_.assign({}, productAction, flashMessage), dispatch)
     }
 }
 

@@ -7,7 +7,7 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 // Import custom components
 import Common from '../../constants/common';
-import * as crudAction from '../../actions/crudAction';
+import * as productAction from '../../actions/productAction';
 import * as flashMessage  from '../../actions/flashMessage';
 import ProductModelBox from './product-model-box.component';
 import FlashMessage from '../common/flash/message.component';
@@ -97,7 +97,7 @@ function mapStateToProps(state) {
  */
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(_.assign({}, crudAction, flashMessage), dispatch)
+        actions: bindActionCreators(_.assign({}, productAction, flashMessage), dispatch)
     }
 }
 
