@@ -19,7 +19,7 @@ class ProductForm extends Component {
         super(props);
 
         this.handleChange = this.handleChange.bind(this);
-        this.onHandleSubmit = this.onHandleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 
@@ -35,9 +35,8 @@ class ProductForm extends Component {
         this.props.actions.clearSelectedItem(Common.PRODUCT);
     }
 
-    onHandleSubmit(formProps) {
+    handleSubmit(formProps) {
         this.props.actions.submitForm(Common.PRODUCT, formProps, this.props.params.id);
-
     }
 
     handleChange(event) {
@@ -58,7 +57,7 @@ class ProductForm extends Component {
                         <div className="box-header with-border">
                             <h3 className="box-title">{(this.props.params.id) ? 'Edit Product' : 'Add Product'}</h3>
                         </div>
-                        <form className="form-horizontal" onSubmit={handleSubmit(this.onHandleSubmit)}>
+                        <form className="form-horizontal" onSubmit={handleSubmit(this.handleSubmit)}>
                             <div className="box-body">
                                 <div className="row">
                                     <div className="col-xs-6">

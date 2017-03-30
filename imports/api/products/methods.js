@@ -7,9 +7,16 @@ Meteor.methods({
         Products.insert(product);
     },
     updateProduct: function (id, product) {
-        Products.update({ _id: id }, { $set: { product } })
+        Products.update({_id: id}, {
+            $set: {
+                code: product.code,
+                name: product.name,
+                description: product.description,
+                status: product.status
+            }
+        })
     },
     destroyProduct: function (id) {
-        Products.remove({ _id: id });
+        Products.remove({_id: id});
     }
 });

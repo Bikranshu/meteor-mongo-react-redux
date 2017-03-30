@@ -20,7 +20,6 @@ class ProductDetail extends Component {
 
     componentWillUnmount() {
         this.props.actions.clearSelectedItem(Common.PRODUCT);
-        this.props.actions.apiClearState();
     }
 
     render() {
@@ -52,12 +51,6 @@ class ProductDetail extends Component {
                                     <dl className="dl-horizontal">
                                         <dt>Description:</dt>
                                         <dd>{this.props.selectedItem.product.description}</dd>
-                                    </dl>
-                                </div>
-                                <div className="col-sm-6">
-                                    <dl className="dl-horizontal">
-                                        <dt>Created By:</dt>
-                                        <dd>{this.props.selectedItem.product.created_by}</dd>
                                     </dl>
                                 </div>
                                 <div className="col-sm-6">

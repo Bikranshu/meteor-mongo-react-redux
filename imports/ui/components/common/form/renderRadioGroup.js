@@ -30,7 +30,7 @@ renderRadioGroup.propTypes = {
     input: PropTypes.object.isRequired,
     label: PropTypes.string,
     type: PropTypes.string.isRequired,
-    data: PropTypes.number,
+    data: PropTypes.string,
     meta: PropTypes.object,
 };
 

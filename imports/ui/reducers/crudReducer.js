@@ -20,12 +20,12 @@ export default function (state, action) {
     switch (action.type) {
         case ActionType.LIST:
             newState = _.cloneDeep(state);
-            newState[action.entity + 's'] = _.cloneDeep(action.data.data);
+            newState[action.entity + 's'] = _.cloneDeep(action.data);
             return newState;
 
         case ActionType.SELECT_ITEM:
             newState = _.cloneDeep(state);
-            newState.selectedItem[action.entity] = action.data.data;
+            newState.selectedItem[action.entity] = action.data;
             return newState;
 
         case ActionType.UPDATE_SELECTED_ITEM:

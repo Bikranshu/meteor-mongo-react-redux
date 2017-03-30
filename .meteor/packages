@@ -18,7 +18,6 @@ shell-server@0.2.3            # Server-side component of the `meteor shell` comm
 ecmascript                    # Enable ECMAScript2015+ syntax in app code
 
 static-html
-twbs:bootstrap
 accounts-password
 aldeed:collection2
 msavin:mongol

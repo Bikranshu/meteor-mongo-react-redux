@@ -39,7 +39,6 @@ ProductSchema = new SimpleSchema({
                 return new Date();
             }
         },
-        denyInsert: true,
         optional: true
     },
 });

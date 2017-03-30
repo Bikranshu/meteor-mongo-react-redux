@@ -1,6 +1,6 @@
 const commons = {
-    USER: 'users',
-    PRODUCT: 'products'
+    USER: 'user',
+    PRODUCT: 'product'
 };
 
 export default commons

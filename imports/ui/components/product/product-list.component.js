@@ -1,8 +1,9 @@
 import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {IndexLink} from 'react-router';
+import {Link, IndexLink} from 'react-router';
 import _ from 'lodash';
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 // Import custom components
 import Common from '../../constants/common';
@@ -17,7 +18,6 @@ class ProductList extends Component {
         super(props);
     }
 
-
     componentWillMount() {
         this.fetchData();
     }
@@ -31,8 +31,8 @@ class ProductList extends Component {
     }
 
     render() {
-
-        let message = this.props.message;
+        let products = this.props.products,
+            message = this.props.message;
 
         return (
             <div className="row">
@@ -50,7 +50,19 @@ class ProductList extends Component {
                         <FlashMessage message={message}/>
 
                         <div className="box-body">
-
+                            <BootstrapTable
+                                data={products}
+                                striped={true}
+                                pagination={ true }
+                                search={ true }
+                                hover={true}>
+                                <TableHeaderColumn dataField="_id" isKey={true} dataSort={true}>Product ID</TableHeaderColumn>
+                                <TableHeaderColumn dataField="code" dataSort={true}>Product Code</TableHeaderColumn>
+                                <TableHeaderColumn dataField="name" dataSort={true}>Product Name</TableHeaderColumn>
+                                <TableHeaderColumn dataField="description" dataSort={true}>Description</TableHeaderColumn>
+                                <TableHeaderColumn dataField="status" dataSort={true}>Status</TableHeaderColumn>
+                                <TableHeaderColumn dataField="action" dataFormat={buttonFormatter}>Actions</TableHeaderColumn>
+                            </BootstrapTable>,
                         </div>
 
                     </div>
@@ -62,6 +74,12 @@ class ProductList extends Component {
 
         );
     }
+}
+
+function buttonFormatter(cell, row) {
+    return `<a href="/#/products/${row._id}/view" title="View"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;
+            <a href="/#/products/${row._id}" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>&nbsp;
+            <a href="javascript:void(0)" title="Remove" data-toggle='modal' data-target="products-box-modal"><i class="fa fa-trash" aria-hidden="true"></i></a>`;
 }
 
 /**
