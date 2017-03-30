@@ -7,11 +7,13 @@ export const LIST = 'LIST';
 export const ADD = 'ADD';
 export const UPDATE = 'UPDATE';
 export const DELETE = 'DELETE';
-export const SELECT_ITEM = 'SELECT_ITEM';
-export const UPDATE_SELECTED_ITEM = 'UPDATE_SELECTED_ITEM';
-export const CLEAR_LIST = 'CLEAR_LIST';
-export const CLEAR_SELECTED_ITEM = 'CLEAR_SELECTED_ITEM';
 export const FAILURE = 'FAILURE';
+
+
+export const SELECT_ITEM = 'SELECT_ITEM';
+export const CLEAR_LIST = 'CLEAR_LIST';
+export const UPDATE_SELECTED_ITEM = 'UPDATE_SELECTED_ITEM';
+export const CLEAR_SELECTED_ITEM = 'CLEAR_SELECTED_ITEM';
 
 
 export const ADD_FLASH_MESSAGE = 'ADD_FLASH_MESSAGE';

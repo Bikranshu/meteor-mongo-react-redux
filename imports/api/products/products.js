@@ -1,6 +1,7 @@
 import {Mongo} from 'meteor/mongo';
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
-export const Products = new Mongo.Collection('products');
+const Products = new Mongo.Collection('products');
 
 ProductSchema = new SimpleSchema({
     code: {
@@ -17,16 +18,9 @@ ProductSchema = new SimpleSchema({
         optional: true
     },
     status: {
-        type: Boolean,
-        label: "Status"
-    },
-    author: {
         type: String,
-        label: "Author",
-        autoValue: function () {
-            return this.userId();
-
-        }
+        label: "Status",
+        optional: true
     },
     createdAt: {
         type: Date,
@@ -51,3 +45,5 @@ ProductSchema = new SimpleSchema({
 });
 
 Products.attachSchema(ProductSchema);
+
+export default Products;

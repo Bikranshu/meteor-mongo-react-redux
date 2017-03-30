@@ -22,6 +22,11 @@ class Sidebar extends Component {
                                 className="fa fa-dashboard"></i><span>Dashboard</span>
                             </IndexLink>
                         </li>
+                        <li>
+                            <IndexLink to={'/products'} activeClassName="active"><i
+                                className="fa fa-cart-plus"></i><span>Product</span>
+                            </IndexLink>
+                        </li>
                     </ul>
                 </section>
             </aside>
