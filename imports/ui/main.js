@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
-import {hashHistory, Router, Route, IndexRoute} from 'react-router';
-import {syncHistoryWithStore} from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
+
+import {Router, Route, IndexRoute} from 'react-router';
+import { ConnectedRouter } from 'react-router-redux';
+const history = createHistory();
 
 // Import custom components
 import App from './components/app.component';
@@ -17,29 +20,26 @@ import ProductForm from './components/product/product-form.component';
 import ProductDetail from './components/product/product-detail.component';
 import store from './store/store.js';
 
-
-const history = syncHistoryWithStore(hashHistory, store);
-
 render(
     <Provider store={store}>
-        <Router history={history}>
-            <Route path="/" component={LoginForm}/>
-            <Route path="/forgot" component={ForgotForm}/>
-            <Route path="/signup" component={SignUpForm}/>
-            <Route path="/dashboard" component={App}>
-                <IndexRoute component={Dashboard}/>
+        <ConnectedRouter history={history}>
+            <div>
+                <Route exact path="/" component={LoginForm}/>
+                <Route path="/forgot" component={ForgotForm}/>
+                <Route path="/signup" component={SignUpForm}/>
+                <Route path="/dashboard" component={App}>
+                    <IndexRoute component={Dashboard}/>
 
-                <Route path="/products" component={Product}>
-                    <IndexRoute component={ProductList}/>
-                    <Route path="new" component={ProductForm}/>
-                    <Route path=":id" component={ProductForm}/>
-                    <Route path=":id/view" component={ProductDetail}/>
+                    <Route path="/products" component={Product}>
+                        <IndexRoute component={ProductList}/>
+                        <Route path="new" component={ProductForm}/>
+                        <Route path=":id" component={ProductForm}/>
+                        <Route path=":id/view" component={ProductDetail}/>
+                    </Route>
+
                 </Route>
-
-            </Route>
-
-            <Route path="*" component={NotFoundPage}/>
-        </Router>
+            </div>
+        </ConnectedRouter>
     </Provider>,
     document.getElementById('root-container')
 );

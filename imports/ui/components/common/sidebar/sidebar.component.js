@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, IndexLink} from 'react-router';
+import {Link} from 'react-router-dom';
 
 // Import custom components
 import UserPanel from './user-panel.component';
@@ -18,14 +18,12 @@ class Sidebar extends Component {
                     <ul className="sidebar-menu">
                         <li className="header">MAIN NAVIGATION</li>
                         <li className="active">
-                            <IndexLink to={'/dashboard'} activeClassName="active"><i
-                                className="fa fa-dashboard"></i><span>Dashboard</span>
-                            </IndexLink>
+                            <Link to={'/dashboard'}><i className="fa fa-dashboard"></i><span>Dashboard</span>
+                            </Link>
                         </li>
                         <li>
-                            <IndexLink to={'/products'} activeClassName="active"><i
-                                className="fa fa-cart-plus"></i><span>Product</span>
-                            </IndexLink>
+                            <Link to={'/products'}><i className="fa fa-cart-plus"></i><span>Product</span>
+                            </Link>
                         </li>
                     </ul>
                 </section>

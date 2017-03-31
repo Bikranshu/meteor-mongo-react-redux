@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
     crud: crudReducer,
     form: formReducer,  // ← redux-form
     flash: flashMessageReducer,
-    routing: routerReducer
+    router: routerReducer
 });
 
 export default rootReducer;

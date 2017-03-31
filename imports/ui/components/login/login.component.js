@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
-import {Link, IndexLink} from 'react-router';
+import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
 import * as authService from '../../services/authService';
@@ -77,9 +77,9 @@ class LoginForm extends Component {
                         <div className="row">
                             <br/>
                             <div className="col-xs-8">
-                                <Link to={'/forgot'}>I forgot my password</Link>
+                                <Link to="/forgot">I forgot my password</Link>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <Link to={'/signup'}>Sign Up</Link>
+                                <Link to="/signup">Sign Up</Link>
                             </div>
                         </div>
                     </form>
