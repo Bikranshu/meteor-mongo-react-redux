@@ -16,6 +16,10 @@ class ProductList extends Component {
 
     constructor(props) {
         super(props);
+
+        this.handleClick = this.handleClick.bind(this);
+        this.actionFormatter = this.actionFormatter.bind(this);
+        this.statusFormatter = this.statusFormatter.bind(this);
     }
 
     componentWillMount() {
@@ -28,6 +32,32 @@ class ProductList extends Component {
 
     fetchData() {
         this.props.actions.fetchAll(Common.PRODUCT);
+    }
+
+    handleClick(event) {
+        event.preventDefault();
+        $("#products-box-modal").modal('show');
+        $("#product-id").val($(event.target).parent().attr('id'));
+
+    }
+
+    actionFormatter(cell, row) {
+        return (
+            <div>
+                <a href={"/#/products/" + row._id + "/view"} title="View"><i className="fa fa-eye" aria-hidden="true"></i></a>&nbsp;
+                <a href={"/#/products/" + row._id} title="Edit"><i className="fa fa-pencil-square-o" aria-hidden="true"></i></a>&nbsp;
+                <a href="javascript:void(0)" id={ row._id } title="Remove" onClick={this.handleClick}><i className="fa fa-trash" aria-hidden="true"></i></a>
+            </div>
+        )
+    }
+
+    statusFormatter(cell, row) {
+        if (row.status == 0) {
+            return `<span class="label label-warning">Open</span>`;
+        } else {
+            return `<span class="label label-success">Close</span>`;
+        }
+
     }
 
     render() {
@@ -60,8 +90,8 @@ class ProductList extends Component {
                                 <TableHeaderColumn dataField="code" dataSort={true}>Product Code</TableHeaderColumn>
                                 <TableHeaderColumn dataField="name" dataSort={true}>Product Name</TableHeaderColumn>
                                 <TableHeaderColumn dataField="description" dataSort={true}>Description</TableHeaderColumn>
-                                <TableHeaderColumn dataField="status" dataSort={true}>Status</TableHeaderColumn>
-                                <TableHeaderColumn dataField="action" dataFormat={buttonFormatter}>Actions</TableHeaderColumn>
+                                <TableHeaderColumn dataField="status" dataSort={true} dataFormat={this.statusFormatter}>Status</TableHeaderColumn>
+                                <TableHeaderColumn dataField="action" dataFormat={this.actionFormatter}>Actions</TableHeaderColumn>
                             </BootstrapTable>,
                         </div>
 
@@ -76,11 +106,6 @@ class ProductList extends Component {
     }
 }
 
-function buttonFormatter(cell, row) {
-    return `<a href="/#/products/${row._id}/view" title="View"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;
-            <a href="/#/products/${row._id}" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>&nbsp;
-            <a href="javascript:void(0)" title="Remove" data-toggle='modal' data-target="products-box-modal"><i class="fa fa-trash" aria-hidden="true"></i></a>`;
-}
 
 /**
  * Map the state to props.

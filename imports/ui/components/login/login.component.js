@@ -78,7 +78,7 @@ class LoginForm extends Component {
                             <br/>
                             <div className="col-xs-8">
                                 <Link to={'/forgot'}>I forgot my password</Link>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <Link to={'/signup'}>Sign Up</Link>
                             </div>
                         </div>

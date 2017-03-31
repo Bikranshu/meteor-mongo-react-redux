@@ -38,7 +38,7 @@ class SignupForm extends Component {
                 <div className="login-logo">
                     <a href="#">Sign Up</a>
                 </div>
-                <div className="login-box-body">
+                <div className="login-box-body signup">
                     <p className="login-box-msg">Introduce yourself</p>
 
                     <FlashMessage message={message}/>

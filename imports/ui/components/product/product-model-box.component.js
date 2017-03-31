@@ -17,9 +17,11 @@ class ProductModelBox extends Component {
 
     handleRemove(event) {
         event.preventDefault();
-        let id = $("#products-id").val();
+        let id = $("#product-id").val();
         this.props.actions.destroyItem(Common.PRODUCT, id);
         $("#products-box-modal").modal('hide');
+
+        this.props.actions.fetchAll(Common.PRODUCT);
 
     }
 
@@ -35,8 +37,8 @@ class ProductModelBox extends Component {
                         </div>
 
                         <div className="modal-body">
-                            <input id="products-id" value="" type="hidden"/>
-                            <p>{Message.DELETE_CONFIRM_MESSAGE}</p>
+                            <input id="product-id" value="" type="hidden"/>
+                            <p>{Message.DELETE_PRODUCT_CONFIRM_MESSAGE}</p>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="product-delete-yes-btn btn btn-primary"

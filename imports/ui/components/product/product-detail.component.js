@@ -24,7 +24,7 @@ class ProductDetail extends Component {
 
     render() {
 
-        const status = this.props.selectedItem.product.status === 0 ? 'Open' : 'Close';
+        const status = this.props.selectedItem.product.status == 0 ? 'Open' : 'Close';
 
         return (
             <div className="row">
