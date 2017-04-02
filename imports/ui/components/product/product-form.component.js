@@ -24,8 +24,8 @@ class ProductForm extends Component {
 
 
     componentWillMount() {
-        if (this.props.params.id) {
-            this.props.actions.fetchById(Common.PRODUCT, this.props.params.id);
+        if (this.props.match.params.id) {
+            this.props.actions.fetchById(Common.PRODUCT, this.props.match.params.id);
             // Redux form will reinitialize
             this.props.initialize();
         }
@@ -36,7 +36,7 @@ class ProductForm extends Component {
     }
 
     handleSubmit(formProps) {
-        this.props.actions.submitForm(Common.PRODUCT, formProps, this.props.params.id);
+        this.props.actions.submitForm(Common.PRODUCT, formProps, this.props.match.params.id);
     }
 
     handleChange(event) {
@@ -55,7 +55,7 @@ class ProductForm extends Component {
                 <div className="col-xs-12">
                     <div className="box box-primary">
                         <div className="box-header with-border">
-                            <h3 className="box-title">{(this.props.params.id) ? 'Edit Product' : 'Add Product'}</h3>
+                            <h3 className="box-title">{(this.props.match.params.id) ? 'Edit Product' : 'Add Product'}</h3>
                         </div>
                         <form className="form-horizontal" onSubmit={handleSubmit(this.handleSubmit)}>
                             <div className="box-body">
@@ -110,7 +110,7 @@ class ProductForm extends Component {
                                     <div className="form-group">
                                         <button type="submit"
                                                 className="btn btn-primary"
-                                                disabled={submitting}>{(this.props.params.id) ? 'Update' : 'Save'}</button>
+                                                disabled={submitting}>{(this.props.match.params.id) ? 'Update' : 'Save'}</button>
                                     </div>
                                 </div>
                             </div>
