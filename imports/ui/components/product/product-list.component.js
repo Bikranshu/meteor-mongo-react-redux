@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {Link, IndexLink} from 'react-router';
+import {Link} from 'react-router-dom';
 import _ from 'lodash';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
@@ -44,8 +44,8 @@ class ProductList extends Component {
     actionFormatter(cell, row) {
         return (
             <div>
-                <a href={"/#/products/" + row._id + "/view"} title="View"><i className="fa fa-eye" aria-hidden="true"></i></a>&nbsp;
-                <a href={"/#/products/" + row._id} title="Edit"><i className="fa fa-pencil-square-o" aria-hidden="true"></i></a>&nbsp;
+                <a href={"/products/" + row._id + "/view"} title="View"><i className="fa fa-eye" aria-hidden="true"></i></a>&nbsp;
+                <a href={"/products/" + row._id} title="Edit"><i className="fa fa-pencil-square-o" aria-hidden="true"></i></a>&nbsp;
                 <a href="javascript:void(0)" id={ row._id } title="Remove" onClick={this.handleClick}><i className="fa fa-trash" aria-hidden="true"></i></a>
             </div>
         )
@@ -71,9 +71,9 @@ class ProductList extends Component {
                         <div className="box-header">
                             <h3 className="box-title">Product List:</h3>
                             <div className="pull-right box-tools">
-                                <IndexLink to={'/products/new'} className="btn btn-primary" title="Add Product"><i
+                                <Link to='/products/new' className="btn btn-primary" title="Add Product"><i
                                     className="glyphicon glyphicon-plus"></i>&nbsp;Add Product
-                                </IndexLink>
+                                </Link>
                             </div>
                         </div>
 

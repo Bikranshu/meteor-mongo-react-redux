@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {IndexLink} from 'react-router';
+import {Link} from 'react-router-dom';
 
 class Title extends Component {
     render(){
@@ -9,7 +9,7 @@ class Title extends Component {
                     <ol className="breadcrumb">
                         <li><a href="#"><i className="fa fa-dashboard"></i> Home</a></li>
                         <li className="active">
-                            <IndexLink to={'/products'}>Product</IndexLink>
+                            <Link to={'/products'}>Product</Link>
                         </li>
                     </ol>
                 </section>
