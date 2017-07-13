@@ -1,5 +1,7 @@
 import {Meteor} from 'meteor/meteor';
-import {browserHistory} from 'react-router';
+import createHistory from 'history/createBrowserHistory'
+
+const history = createHistory();
 
 import * as ActionType from '../constants/actionType';
 import * as FlashMessage from './flashMessage';
@@ -43,7 +45,7 @@ export function storeItem(entity, data) {
                     type: ActionType.ADD
                 });
                 dispatch(FlashMessage.addFlashMessage('success', 'Product added successfully.'));
-                browserHistory.goBack();
+                history.goBack();
             }
         });
     };
@@ -64,7 +66,7 @@ export function updateItem(entity, data, id) {
                     type: ActionType.UPDATE
                 });
                 dispatch(FlashMessage.addFlashMessage('success', 'Product updated successfully.'));
-                browserHistory.goBack();
+                history.goBack();
             }
         });
     };

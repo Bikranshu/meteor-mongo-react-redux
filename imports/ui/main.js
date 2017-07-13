@@ -3,9 +3,8 @@ import {render} from 'react-dom';
 import {Provider} from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
 
-import {Router, Route, Switch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import {ConnectedRouter} from 'react-router-redux';
-const history = createHistory();
 
 // Import custom components
 import NotFoundPage from './components/error/not-found.component';
@@ -21,6 +20,8 @@ import MainLayout from './components/common/layouts/main.layout.component';
 import ProductLayout from './components/common/layouts/product.layout.component';
 
 import store from './store/store.js';
+
+const history = createHistory();
 
 render(
     <Provider store={store}>
