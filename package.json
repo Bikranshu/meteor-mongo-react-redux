@@ -5,20 +5,20 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "babel-runtime": "^6.20.0",
+    "babel-runtime": "^6.26.0",
     "classnames": "^2.2.5",
-    "history": "^4.6.3",
+    "history": "^4.7.2",
     "lodash": "^4.17.4",
     "meteor-node-stubs": "~0.2.4",
     "react": "^15.4.2",
-    "react-bootstrap-table": "^3.1.2",
+    "react-bootstrap-table": "^4.0.2",
     "react-dom": "^15.6.1",
-    "react-redux": "^5.0.5",
+    "react-redux": "^5.0.6",
     "react-router": "^4.1.1",
-    "react-router-dom": "^4.1.1",
+    "react-router-dom": "^4.1.2",
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.7.1",
-    "redux-form": "^7.0.0",
+    "redux-form": "^7.0.3",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0"
   }
